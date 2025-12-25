@@ -12,6 +12,12 @@ app.get("/api/data", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
-});
+// For local development
+if (require.main === module) {
+    app.listen(3000, () => {
+        console.log("Server running on port 3000");
+    });
+}
+
+// Export for Vercel
+module.exports = app;
